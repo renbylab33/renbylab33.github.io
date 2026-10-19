@@ -1,67 +1,272 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<title>Beranda</title>
-<link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>Beranda</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styling & Font Cute */
+        body {
+            font-family: 'Fredoka', 'Nunito', 'Poppins', sans-serif !important;
+            color: #4a2e2b;
+            margin: 0;
+            padding: 20px 0;
+            background: #fff8e7 url("images/background.svg") repeat !important;
+        }
+
+        /* Container Tabel Utama */
+        table[width="800px"] {
+            border-collapse: separate !important;
+            border-spacing: 0 !important;
+            border-radius: 30px !important;
+            border: 4px solid #fff0b3 !important;
+            box-shadow: 0 15px 35px rgba(128, 0, 32, 0.15), 0 5px 15px rgba(255, 204, 0, 0.2) !important;
+            overflow: hidden !important;
+            background-color: #ffffff !important;
+            transition: transform 0.3s ease;
+        }
+
+        /* 1. Header Area (Maroon & Yellow accents) */
+        tr:first-child td {
+            background: linear-gradient(135deg, #800020 0%, #a31c3f 60%, #900c3f 100%) !important;
+            border-top-left-radius: 26px !important;
+            border-top-right-radius: 26px !important;
+            position: relative;
+            padding: 25px !important;
+        }
+
+        tr:first-child h1 {
+            font-size: 2.3em;
+            color: #ffe600 !important;
+            text-shadow: 2px 2px 0px #4a0013, 4px 4px 10px rgba(0,0,0,0.2);
+            letter-spacing: 1px;
+            margin: 10px 0;
+            animation: cuteFloat 3s ease-in-out infinite;
+        }
+
+        tr:first-child em {
+            color: #fff3a1 !important;
+            font-style: normal;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 4px 16px;
+            border-radius: 20px;
+            display: inline-block;
+            box-shadow: inset 0 0 8px rgba(255, 230, 0, 0.3);
+        }
+
+        /* 2. Menu Navigasi Cute (Pink original diganti Kuning Ceria) */
+        tr:nth-child(2) td {
+            background-color: #ffeb85 !important;
+            text-align: center !important;
+            padding: 14px !important;
+            border-bottom: 3px dashed #e6b800;
+        }
+
+        /* Tombol Navigasi Bulat + Animasi Interaktif */
+        tr:nth-child(2) td a {
+            display: inline-block;
+            text-decoration: none !important;
+            color: #800020 !important;
+            font-weight: 700;
+            background-color: #ffffff;
+            padding: 8px 20px;
+            margin: 3px 6px;
+            border-radius: 50px; /* Bentuk Kapsul/Bulat */
+            border: 2px solid #800020;
+            box-shadow: 0 4px 0px #800020;
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        tr:nth-child(2) td a:hover {
+            background-color: #800020 !important;
+            color: #ffe600 !important;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 7px 0px #4a0013;
+        }
+
+        tr:nth-child(2) td a:active {
+            transform: translateY(2px) scale(0.98);
+            box-shadow: 0 2px 0px #4a0013;
+        }
+
+        /* 3. Area Konten Utama */
+        td[width="75%"] {
+            padding: 25px 30px !important;
+            background-color: #fffdf5 !important;
+        }
+
+        td[width="75%"] h3 {
+            color: #800020;
+            font-size: 1.3em;
+            margin-bottom: 5px;
+            position: relative;
+            display: inline-block;
+        }
+
+        td[width="75%"] h3::after {
+            content: '✨';
+            font-size: 0.8em;
+            margin-left: 6px;
+        }
+
+        /* Tombol "Selanjutnya" Interaktif Bulat */
+        td[width="75%"] p a {
+            display: inline-block;
+            text-decoration: none !important;
+            color: #800020 !important;
+            font-weight: 700;
+            background: #ffe066;
+            padding: 8px 22px;
+            border-radius: 25px;
+            border: 2px solid #ffcc00;
+            box-shadow: 0 4px 10px rgba(255, 204, 0, 0.4);
+            transition: all 0.25s ease;
+        }
+
+        td[width="75%"] p a:hover {
+            background: #800020 !important;
+            color: #ffffff !important;
+            border-color: #800020;
+            transform: translateY(-3px) rotate(-1deg);
+            box-shadow: 0 6px 15px rgba(128, 0, 32, 0.3);
+        }
+
+        td[width="75%"] p a:active {
+            transform: translateY(0);
+        }
+
+        hr {
+            border: none;
+            border-top: 3px dotted #ffd633;
+            margin: 25px 0;
+        }
+
+        /* 4. Sidebar Tautan Eksternal Cute */
+        td[width="25%"] {
+            background-color: #fff5cc !important;
+            border-left: 3px dashed #ffe066;
+            padding: 20px !important;
+            border-radius: 0 0 0 20px;
+        }
+
+        td[width="25%"] > p {
+            font-weight: bold;
+            color: #800020;
+            font-size: 1.05em;
+            text-align: center;
+            background: #ffe680;
+            padding: 6px;
+            border-radius: 15px;
+            margin-top: 0;
+        }
+
+        td[width="25%"] ol {
+            padding-left: 20px;
+        }
+
+        td[width="25%"] li {
+            margin-bottom: 10px;
+        }
+
+        /* Link Sidebar Cute Button Style */
+        td[width="25%"] a {
+            text-decoration: none !important;
+            color: #800020 !important;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 12px;
+            background-color: #ffffff;
+            display: inline-block;
+            border: 1.5px solid #ffd633;
+            transition: all 0.2s ease;
+        }
+
+        td[width="25%"] a:hover {
+            background-color: #800020 !important;
+            color: #ffe600 !important;
+            border-color: #800020;
+            transform: translateX(4px);
+        }
+
+        /* 5. Footer Area */
+        tr:last-child td {
+            background-color: #4a0013 !important;
+            border-bottom-left-radius: 26px !important;
+            border-bottom-right-radius: 26px !important;
+            padding: 15px 25px !important;
+            border-top: 3px solid #ffe066;
+        }
+
+        tr:last-child font {
+            color: #ffeb85 !important;
+            font-weight: 600;
+        }
+
+        /* Animasi Mengapung Halus pada Judul */
+        @keyframes cuteFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+    </style>
 </head>
 
 <body bgcolor="darkgrey" background="images/background.svg">
-<!-- Halaman web tanpa CSS. Murni hanya memakai HTML -->
-<p>&nbsp;</p>
-<table border="1" width="800px" cellpadding="12px" align="center" bgcolor="white" style="border-radius: 46px; overflow: hidden;">
-<tr>
-<td colspan="2" align="center" bgcolor="red" background="images/jaring-teal.svg">
-<font color="white">
-<p>&nbsp;</p>
-<h1>Website Khansa</h1>
-<p><em>"Sekolah bukan cuma tempat mencari nilai, tapi tempat belajar cara berpikir dan memahami dunia."</em></p>
-<p>&nbsp;</p>
-</font>
-</td>
-</tr>
-<tr>
-<td colspan="2" bgcolor="pink">
-<a href="./">Beranda</a> |
-<a href="tentang-saya.html">tentang-saya</a> |
-<a href="Eskul.html">Eskul</a> |
-<a href="Kontak.html">Kontak</a>
-</td>
-</tr>
-<tr>
-<td width="75%">
-<!-- Content utama -->
+    <!-- Halaman web tanpa CSS. Murni hanya memakai HTML -->
+    <p>&nbsp;</p>
+    <table border="1" width="800px" cellpadding="12px" align="center" bgcolor="white">
+        <tr>
+            <td colspan="2" align="center" bgcolor="teal" background="images/jaring-teal.svg">
+                <font color="white">
+                    <p>&nbsp;</p>
+                    <h1>Website Renata</h1>
+                    <p><em>goodluck</em></p>
+                    <p>&nbsp;</p>
+                </font>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" bgcolor="pink">
+                <a href="./">Beranda</a> |
+                <a href="tentang-saya.html">tentang-saya</a> |
+                <a href="kegiatan.html">kegiatan</a> |
+                <a href="kontak.html">kontak</a>
+            </td>
+        </tr>
+        <tr>
+            <td width="75%">
+                <!-- Content utama -->
 
-<h3>Ekstakulikuler</h3>
-<p align="right"><small><em>Senin, 12 Desember 2026</em></small></p>
-<p>Ekstrakurikuler di SMKN 1 Tangerang, atau yang akrab dikenal sebagai eskul Nesta, berfungsi sebagai wadah resmi bagi para siswa untuk menyalurkan minat, bakat, serta potensi nonakademik mereka di luar jam pelajaran sekolah.</p>
-<p><a href="Berita%201.html">Selanjutnya</a></p>
+                <h3>Awal Karier BTS</h3>
+                <p align="right"><small><em>Kamis, 13 Juni 2019</em></small></p>
+                <p>BTS atau Bangtan Sonyeondan adalah boy group asal Korea Selatan yang dibentuk oleh Big Hit Entertainment, yang sekarang dikenal sebagai HYBE. BTS beranggotakan RM, Jin, SUGA, j-hope, Jimin, V, dan Jung Kook. Mereka resmi debut pada 13 Juni 2013 dengan single album 2 Cool 4 Skool dan lagu utama “No More Dream.”</p>
+                <p><a href="berita%201.html">Selanjutnya</a></p>
 
-<hr>
+                <hr>
 
-<h3>Mengenai SMKN 1 Tangerang</h3>
-<p align="right"><small><em>Jumat, 5 mei 2026</em></small></p>
-<p>SMKN 1 Tangerang merupakan salah satu sekolah menengah kejuruan negeri dan unggulan di Kota Tangerang yang tidak hanya berfokus pada pencapaian akademik semata, melainkan juga secara konsisten berkomitmen untuk melahirkan generasi muda yang kompeten, berkarakter kuat, serta siap bersaing di dunia industri global melalui penyediaan berbagai program keahlian yang relevan dengan perkembangan zaman dan didukung oleh fasilitas belajar yang modern serta sertifikasi profesi resmi.</p>
-<p><a href="Berita%202.html">Selanjutnya</a></p>
+                <h3>Langkah Awal BTS di Dunia Musik</h3>
+                <p align="right"><small><em>Sabtu, 7 September 2019</em></small></p>
+                <p>Pada masa awal debut, BTS mengusung konsep hip-hop dengan gaya yang cukup berbeda dari banyak boy group pada saat itu. Lagu-lagu mereka banyak membahas kehidupan dan keresahan anak muda, seperti tekanan dari sekolah, impian, serta keinginan untuk menentukan jalan hidup sendiri.</p>
+                <p><a href="berita%202.html">Selanjutnya</a></p>
 
-<!-- Akhir dari content utama -->
-</td>
-<td width="25%" valign="top" bgcolor="lightgrey">
-<p>Tautan eksternal</p>
-<ol>
-<li><a href="https://www.Chsar.or.id">Website khansa</a></li>
-<li><a href="https://www.github.com">Github</a></li>
-<li><a href="https://www.wikipedia.org">Wikipedia</a></li>
-<li><a href="https://www.w3schools.com">W3Schools</a></li>
-</ol>
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" bgcolor="black">
-<font color="white"><small>&copy; Copyright Khansa 2026.</small></font>
-</td>
-</tr>
-</t>
-<p>&nbsp;</p>
+                <!-- Akhir dari content utama -->
+            </td>
+            <td width="25%" valign="top" bgcolor="lightgrey">
+                <p>Tautan eksternal</p>
+                <ol>
+                    <li><a href="https://en.wikipedia.org/wiki/BTS">BTS</a></li>
+                    <li><a href="https://www.instagram.com/bts.bighitofficial/?hl=en">instagram bts</a></li>
+                    <li><a href="https://x.com/BTS_twt?lang=en">twitter bts</a></li>
+                    <li><a href="https://www.tiktok.com/@bts_official_bighit?lang=en">tiktok bts</a></li>
+                </ol>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="right" bgcolor="black">
+                <font color="white"><small>&copy; Copyright Renata Aurellia, 2019.</small></font>
+            </td>
+        </tr>
+    </table>
+    <p>&nbsp;</p>
 </body>
 
 </html>
